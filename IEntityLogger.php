@@ -3,5 +3,5 @@
 
 interface IEntityLogger
 {
-    public function log(string $id);
+    public function log(string $id): void;
 }
