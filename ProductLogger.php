@@ -4,6 +4,7 @@ namespace App;
 
 class ProductLogger implements IEntityLogger
 {
+    private const COUNTER_PATH = 'counter.txt';
 
     /**
      * This method count requests to product.
@@ -12,26 +13,27 @@ class ProductLogger implements IEntityLogger
      */
     public function log(string $id): void
     {
-        $file = 'counter.txt';
+        $content = explode("\n", file_get_contents(self::COUNTER_PATH));
+        $match = false;
 
-        if (!is_file($file)) {
-            $contents = "$id=1";           // Some simple example content.
-            file_put_contents($file, $contents);     // Save our content to the file.
-            return;
-        }
-        $data = '';
-        $myFile = fopen($file, 'rb');
-        while (!feof($myFile)) {
-            $line = fgets($myFile);
-            $lineA = explode("=", $line);
-            if ($lineA[0] === $id) {
-                ++$lineA[1];
+        foreach ($content as $key => $line) {
+            if (empty($line)) {
+                unset($content[$key]);
+                continue;
             }
-            $data .= $lineA[0] . '=' . $lineA[1] . "\n";
+            $lineKeyValue = explode('=', $line);
+            if ($id === $lineKeyValue[0]) {
+                $match = true;
+                ++$lineKeyValue[1];
+                $content[$key] = $lineKeyValue[0] . '=' . $lineKeyValue[1];
+                continue;
+            }
         }
 
-        fclose($myFile);
+        if (!$match) {
+            $content[] = $id . "=1\n";
+        }
 
-        file_put_contents($file, $data);
+        file_put_contents(self::COUNTER_PATH, implode("\n", $content));
     }
 }
