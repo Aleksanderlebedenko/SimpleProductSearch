@@ -3,7 +3,7 @@
 class ProductController
 {
     /**
-     * @var IGetProduct
+     * @var IProductFacade
      */
     private $product;
     /**
@@ -12,7 +12,7 @@ class ProductController
     private $entityLogger;
 
 
-    public function __construct(IGetProduct $product, IEntityLogger $entityLogger)
+    public function __construct(IProductFacade $product, IEntityLogger $entityLogger)
     {
         $this->product = $product;
         $this->entityLogger = $entityLogger;
@@ -26,6 +26,6 @@ class ProductController
     {
         $this->entityLogger->log($id); //Here we track the number of requests for each product
 
-        return json_encode($this->product->execute($id));
+        return json_encode($this->product->getById($id));
     }
 }

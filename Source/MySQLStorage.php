@@ -9,7 +9,7 @@ class MySQLStorage implements IProductStorage, IMySQLDriver
      * @param string $id
      * @return array
      */
-    public function find(string $id): array
+    public function getById(string $id): array
     {
         return $this->findProduct($id);
     }

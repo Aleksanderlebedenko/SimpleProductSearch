@@ -5,7 +5,7 @@ class ElasticSearchStorage implements IProductStorage, IElasticSearchDriver
 {
     public const RESOURCE_NAME = 'ElasticSearch';
 
-    public function find(string $id): array
+    public function getById(string $id): array
     {
         return $this->findById($id);
     }

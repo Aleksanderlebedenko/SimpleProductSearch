@@ -1,6 +1,6 @@
 <?php
 
-class Cache
+class Cache implements ICache
 {
     /**
      * @param string $id

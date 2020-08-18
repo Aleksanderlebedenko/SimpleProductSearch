@@ -2,16 +2,18 @@
 
 class ResourceFactory
 {
-    public static function createStorageInstance(): IProductStorage
+    private static function createStorageInstance(): IProductStorage
     {
-        switch ($_ENV['defaultProductStorage']) { // For instance we always have this variable
+        switch ($_ENV['defaultProductStorage']) { // For instance, we always have this variable
             case MySQLStorage::MYSQL_RESOURCE_NAME:
-                $storage = new MySQLStorage();
-                break;
+                return new MySQLStorage();
             default:
-                $storage = new ElasticSearchStorage();
+                return new ElasticSearchStorage();
         }
+    }
 
-        return new ProductStorage($storage);
+    public static function createProductReader(): IProductReader
+    {
+        return new ProductReader(CacheFactory::createCacheInstance(), static::createStorageInstance());
     }
 }

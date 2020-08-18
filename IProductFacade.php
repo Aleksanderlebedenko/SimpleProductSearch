@@ -1,10 +1,10 @@
 <?php
 
-interface IGetProduct
+interface IProductFacade
 {
     /**
      * @param string $id
      * @return array
      */
-    public function execute(string $id): array;
+    public function getById($id): array;
 }
