@@ -2,7 +2,10 @@
 
 namespace App\Source;
 
-
+/**
+ * Interface IProductStorage for reading product from any storage.
+ * @package App\Source
+ */
 interface IProductStorage
 {
     /**

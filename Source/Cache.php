@@ -5,9 +5,17 @@ namespace App\Source;
 
 use App\Exceptions\CannotFindFromTheCache;
 
+/**
+ * Class for caching of the products.
+ * As part of a test task, I've decided to not create an exact implementation.
+ *
+ * @package App\Source
+ */
 class Cache implements ICache
 {
     /**
+     * Get product from the cache.
+     *
      * @param string $id
      * @return array
      * @throws CannotFindFromTheCache
@@ -20,6 +28,8 @@ class Cache implements ICache
     }
 
     /**
+     * Save product to the cache.
+     *
      * @param array $product
      */
     public function saveProduct(array $product): void

@@ -2,12 +2,17 @@
 
 namespace App;
 
+/**
+ * Class ProductLogger allows us to log product activity.
+ * @package App
+ */
 class ProductLogger implements IEntityLogger
 {
-    private const COUNTER_PATH = 'counter.txt';
+    private const COUNTER_PATH = 'counter.txt'; // For instance let it be in the project folder.
 
     /**
-     * This method count requests to product.
+     * This method count requests to product and store it into the file.
+     * I've decided to put all in one method for simplification.
      *
      * @param string $id
      */

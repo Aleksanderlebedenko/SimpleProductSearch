@@ -2,10 +2,14 @@
 
 namespace App\Controller;
 
-
 use App\IEntityLogger;
 use App\IProductFacade;
 
+/**
+ * Class ProductController
+ *
+ * @package App\Controller
+ */
 class ProductController
 {
     /**
@@ -17,7 +21,13 @@ class ProductController
      */
     private $entityLogger;
 
-
+    /**
+     * ProductController constructor.
+     * We need it for DI of the needed classes.
+     *
+     * @param IProductFacade $product
+     * @param IEntityLogger $entityLogger
+     */
     public function __construct(IProductFacade $product, IEntityLogger $entityLogger)
     {
         $this->product = $product;
@@ -25,6 +35,8 @@ class ProductController
     }
 
     /**
+     * Getting details of the product.
+     *
      * @param string $id
      * @return string
      */

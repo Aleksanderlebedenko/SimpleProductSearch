@@ -2,7 +2,11 @@
 
 namespace App\Source;
 
-
+/**
+ * Given Interface IElasticSearchDriver from the task.
+ *
+ * @package App\Source
+ */
 interface IElasticSearchDriver
 {
     /**
