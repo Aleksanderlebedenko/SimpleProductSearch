@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Source;
+
 class ResourceFactory
 {
     private static function createStorageInstance(): IProductStorage

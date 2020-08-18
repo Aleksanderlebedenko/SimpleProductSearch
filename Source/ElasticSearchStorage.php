@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Source;
+
 
 class ElasticSearchStorage implements IProductStorage, IElasticSearchDriver
 {

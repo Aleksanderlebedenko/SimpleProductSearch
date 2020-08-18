@@ -1,5 +1,8 @@
 <?php
 
+namespace App;
+
+use App\Source\ResourceFactory;
 
 class ProductFacade implements IProductFacade
 {

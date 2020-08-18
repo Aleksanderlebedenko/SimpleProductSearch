@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Source;
+
+
+use App\Exceptions\CannotFindFromTheCache;
+
 class Cache implements ICache
 {
     /**

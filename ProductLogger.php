@@ -1,5 +1,6 @@
 <?php
 
+namespace App;
 
 class ProductLogger implements IEntityLogger
 {
@@ -19,14 +20,14 @@ class ProductLogger implements IEntityLogger
             return;
         }
         $data = '';
-        $myFile = fopen($file, 'wb');
+        $myFile = fopen($file, 'rb');
         while (!feof($myFile)) {
             $line = fgets($myFile);
             $lineA = explode("=", $line);
             if ($lineA[0] === $id) {
                 ++$lineA[1];
             }
-            $data .= $lineA[0] . '=' . $lineA[1] . '\n';
+            $data .= $lineA[0] . '=' . $lineA[1] . "\n";
         }
 
         fclose($myFile);

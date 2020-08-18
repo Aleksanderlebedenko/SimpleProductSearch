@@ -1,5 +1,11 @@
 <?php
 
+namespace App\Controller;
+
+
+use App\IEntityLogger;
+use App\IProductFacade;
+
 class ProductController
 {
     /**

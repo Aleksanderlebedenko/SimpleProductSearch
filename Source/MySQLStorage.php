@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Source;
+
 
 class MySQLStorage implements IProductStorage, IMySQLDriver
 {
